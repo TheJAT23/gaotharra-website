@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gaotharra.com/sitemap.xml

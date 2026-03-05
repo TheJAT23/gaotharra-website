@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact | Gaotharra</title>
+  <meta name="description" content="Contact Gaotharra to discuss strategic facility development, planning, and advisory work." />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="name">Gaotharra</div>
+          <div class="tag">Facility planning & advisory for what’s ahead.</div>
+        </div>
+      </a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a class="active" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="cta">
+        <a class="button small" href="services.html">Services</a>
+        <a class="button primary small" href="about.html">About</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-title">
+      <h1>Contact</h1>
+      <p>Send a note and we’ll set up a short conversation.</p>
+    </section>
+
+    <section class="section split">
+      <div class="card pad">
+        <div class="pill">Email</div>
+        <h2 style="margin:12px 0 8px;">Reach Joshua</h2>
+        <p style="margin:0 0 12px; color:var(--muted);">
+          Use the quick email link or the form below (it opens your email client).
+        </p>
+
+        <!-- Update this to your preferred address -->
+        <p style="margin:0 0 12px;">
+          <a class="button primary" href="mailto:info@gaotharra.com?subject=Gaotharra%20Inquiry">Email: info@gaotharra.com</a>
+        </p>
+
+        <hr class="sep" />
+
+        <div class="pill">Common starting points</div>
+        <ul class="list">
+          <li>Strategic facility planning / portfolio direction</li>
+          <li>Programming and stakeholder alignment</li>
+          <li>Capital readiness and decision packages</li>
+          <li>Rapid planning for pursuits and due diligence</li>
+        </ul>
+      </div>
+
+      <div class="card pad">
+        <div class="pill">Message</div>
+        <h2 style="margin:12px 0 8px;">Quick note</h2>
+
+        <form class="form" id="contactForm">
+          <div>
+            <label for="name">Name</label>
+            <input class="input" id="name" name="name" autocomplete="name" required />
+          </div>
+          <div>
+            <label for="org">Organization</label>
+            <input class="input" id="org" name="org" autocomplete="organization" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input class="input" id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div>
+            <label for="msg">Message</label>
+            <textarea class="input" id="msg" name="msg" required></textarea>
+          </div>
+
+          <button class="button primary" type="submit">Open email draft</button>
+          <div class="note">This form doesn’t store data — it opens your email app with a prefilled draft.</div>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="row">
+        <div>© <span id="year"></span> Gaotharra LLC</div>
+        <div><a href="index.html">Home</a> · <a href="services.html">Services</a></div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Update destination email here if needed:
+    const DEST_EMAIL = "info@gaotharra.com";
+
+    document.getElementById("contactForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const org = document.getElementById("org").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const msg = document.getElementById("msg").value.trim();
+
+      const subject = encodeURIComponent("Gaotharra Inquiry");
+      const body = encodeURIComponent(
+`Name: ${name}
+Organization: ${org || "-"}
+Email: ${email}
+
+Message:
+${msg}
+`
+      );
+
+      window.location.href = `mailto:${DEST_EMAIL}?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
